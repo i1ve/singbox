@@ -10,6 +10,22 @@
     "proxy-b",
     "proxy-c"
   ],
+  "providers": [
+    "provider-a",
+    "provider-b",
+    "provider-c",
+  ],
+  "includes": [
+    "^HK\\..+",
+    "^TW\\..+",
+    "^SG\\..+",
+  ],
+  "excludes": "^JP\\..+",
+  "types": [
+    "shadowsocks",
+    "vmess",
+    "vless",
+  ],
   "url": "https://www.gstatic.com/generate_204",
   "interval": "1m",
   "tolerance": 50,
@@ -17,13 +33,31 @@
 }
 ```
 
+!!! note ""
+
+    You can ignore the JSON Array [] tag when the content is only one item
+
 ### Fields
 
 #### outbounds
 
-==Required==
-
 List of outbound tags to test.
+
+#### providers
+
+List of providers tags to select.
+
+#### includes
+
+List of regular expression used to match tag of outbounds contained by providers which can be appended.
+
+#### excludes
+
+Match tag of outbounds contained by providers which cannot be appended.
+
+#### types
+
+Match type of outbounds contained by providers which cannot be appended.
 
 #### url
 
